@@ -8,6 +8,7 @@ lista_novo_cnpj = list()
 lista_multiplicar = list()
 cnpj_final = ''
 
+
 def converter(cnpj, lista):
     for c in cnpj:
         c = int(c)
@@ -34,22 +35,26 @@ def string(lista, cnpj):
         cnpj += c
     return cnpj
 
+
+def analisar_digito(digito):
+    if digito > 9:
+        digito = 0
+    return digito
+
+
 #main 
 converter(novo_cnpj, lista_novo_cnpj)
 lista_multiplicadora(lista_novo_cnpj, lista_formula, lista_multiplicar)
 
 primeiro_digito = 11 - (somar_lista(lista_multiplicar) % 11)
-if primeiro_digito > 9:
-    primeiro_digito = 0
-
+primeiro_digito = analisar_digito(primeiro_digito)
 lista_novo_cnpj.append(primeiro_digito)
 lista_multiplicar = []
+
 lista_multiplicadora(lista_novo_cnpj, lista_formula2, lista_multiplicar)
 
 segundo_digito = 11 - (somar_lista(lista_multiplicar) % 11)
-if segundo_digito > 9:
-    segundo_digito = 0
-
+segundo_digito = analisar_digito(segundo_digito)
 lista_novo_cnpj.append(segundo_digito)
 calculo_final = string(lista_novo_cnpj, cnpj_final)
 
