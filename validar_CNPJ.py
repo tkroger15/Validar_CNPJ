@@ -1,5 +1,13 @@
 # 40688134000161
 # 04252011000110
+cnpj = input('CNPJ: ')
+novo_cnpj = cnpj[:-2]
+lista_formula = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+lista_formula2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+lista_novo_cnpj = list()
+lista_multiplicar = list()
+cnpj_final = ''
+
 def converter(cnpj, lista):
     for c in cnpj:
         c = int(c)
@@ -26,15 +34,7 @@ def string(lista, cnpj):
         cnpj += c
     return cnpj
 
-
-cnpj = input('CNPJ: ')
-novo_cnpj = cnpj[:-2]
-lista_formula = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
-lista_formula2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
-lista_novo_cnpj = list()
-lista_multiplicar = list()
-cnpj_final = ''
-
+#main 
 converter(novo_cnpj, lista_novo_cnpj)
 lista_multiplicadora(lista_novo_cnpj, lista_formula, lista_multiplicar)
 
